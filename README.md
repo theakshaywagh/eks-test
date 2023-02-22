@@ -1,8 +1,8 @@
-Things to complete
-- This repository hosts a Laravel 9 application which needs to be dockerized.
-- The public folder is /public
-- There are 2 routes defined in the application /container1 and /container2
-  - Both these routes should be working on separate container
-  - so if I access /container1 it should be routed to container 1 and same thing for container 2
-- storage folder should be available even after the containers are destroyed and recreated
+In K8s folder we have all kubernetes files to complete thie given task
 
+1. Created deployment1 and deployment 2 for pods creation of container1 and container2 respectivey.
+2. created sevice1 and service2 for pods of container1 and container2 respectivey.
+3. Created path based ingress for both services 1 & 2. 
+    /container1 redirects to service1 i.e pods of container1
+    /container2 redirects to service1 i.e pods of container2
+4. For persistant Volumes created persistent volumes using AWS-EBS.
