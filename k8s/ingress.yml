@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-ingress
+spec:
+  rules:
+  - host: app.example.com 	#example host
+    http:
+      paths:
+      - path: /container1	# It will forward all /container1 requests to deployment1 
+        pathType: Prefix
+        backend:
+          service:
+            name: service1
+            port:
+              number: 4200
+      - path: /container2	# It will forward all /container1 requests to deployment2 
+        pathType: Prefix
+        backend:
+          service:
+            name: service2
+            port:
+              number: 4300

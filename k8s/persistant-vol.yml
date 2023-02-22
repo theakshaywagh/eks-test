@@ -1,0 +1,16 @@
+# as asked that volume should not get deleted- we are creating persistent volume using AWS-EBS volume
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: aws-pv
+  labels:
+    type: aws-pv
+spec:
+  capacity:
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: <123abcde>   #Your EBS Volume ID
+    fsType: xfs

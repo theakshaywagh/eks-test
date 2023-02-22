@@ -1,0 +1,17 @@
+# Service1 for deployment 1 (container1)
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+spec:
+  type: NodePort	#type NodePort
+  selector:
+    app: container1	#container1 pods mentioned as selector
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 80
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 31001

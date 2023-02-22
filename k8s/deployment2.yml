@@ -1,0 +1,47 @@
+# Deployment 2 having container2 pods
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: deployment2
+
+  labels:
+
+    app: container2
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: container2
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: container2
+
+    spec:
+
+      containers:
+
+      - name: container2
+
+        image: theakshaywagh/swaraa-laveral9	#image is kept on this repo -using this image- e.g.
+
+        ports:
+
+        - containerPort: 80
+      volumes:				# Persistant Volume Mentioned
+  	- name: aws-pv
+    	persistentVolumeClaim:
+      	  claimName: pv-claim

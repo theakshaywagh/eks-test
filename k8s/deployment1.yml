@@ -1,0 +1,48 @@
+# This is our deployment 1 wich has container1 pods
+
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: deployment-container1
+
+  labels:
+
+    app: container1
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: container1
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: container1
+
+    spec:
+
+      containers:
+
+      - name: container1
+
+        image: theakshaywagh/swaraa-laveral9	#image is kept on this repo -using this image- e.g.
+
+        ports:
+
+        - containerPort: 80
+      volumes:				# Persistant Volume Mentioned
+  	- name: aws-pv
+    	persistentVolumeClaim:
+      	  claimName: pv-claim
