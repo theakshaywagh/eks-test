@@ -1,3 +1,5 @@
+# Ingress Resource (we still need to install nginx ingress controller)
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,14 +9,14 @@ spec:
   - host: app.example.com 	#example host
     http:
       paths:
-      - path: /container1	# It will forward all /container1 requests to deployment1 
+      - path: /container1        	# It will forward all /container1 requests to deployment1 
         pathType: Prefix
         backend:
           service:
             name: service1
             port:
               number: 4200
-      - path: /container2	# It will forward all /container1 requests to deployment2 
+      - path: /container2         	# It will forward all /container1 requests to deployment2 
         pathType: Prefix
         backend:
           service:
